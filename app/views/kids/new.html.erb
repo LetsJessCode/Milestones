@@ -1,0 +1,22 @@
+<h1>Create New Child</h1>
+
+<%= form_for @kid do |f| %>
+Please fill in your child's information below.
+<div>
+    <ol>
+        <li><%= f.label :f_name, 'First Name:' %></li>
+        <%= f.text_field :f_name %><br>
+
+        <li><%= f.label :l_name, 'Last Name:' %></li>
+       <%= f.text_field :l_name %><br>
+
+        <li><%= f.label :birth, 'Birthday:' %></li>
+        <%= f.date_field :birth %><br>
+
+        <li><%= f.label :age %></li>
+        <%= f.text_field :age %><br>
+ <% end %>
+    </ol>
+ </div>
+    
+   

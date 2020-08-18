@@ -1,0 +1,10 @@
+<h1>Home Page</h1>
+<% @kids.each do |kid| %>
+<div> 
+    <h2>Full Name: <%= kid.f_name %> <%= kid.l_name %></h2>
+</div>
+<div> 
+    <h4>Birthday: <%= kid.birth %> | Age: <%= kid.age %> | Gender: <%= kid.gender %> </h4>
+    <br>
+</div>  <hr>
+    <% end %>
