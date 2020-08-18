@@ -1,1 +1,6 @@
-<h1>hello</h1>
+<h1><%=@kid.f_name %> <%= @kid.l_name %>'s Profile</h1>
+    <p><%= @kid.birth %> | <%= @kid.age %> | <%= @kid.gender %></p>
+    <hr><hr>
+
+    <p><%= link_to 'Edit Profile', edit_kid_path(@kid) %>
+    <%= link_to "Delete", kid_path(@kid), method: "delete" %></p>

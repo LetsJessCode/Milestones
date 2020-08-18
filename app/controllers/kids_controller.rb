@@ -1,4 +1,5 @@
 class KidsController < ApplicationController
+    before_action :set_kid, only: [:show, :edit, :update, :destroy]
     def index
         @kids = Kid.all
     end
@@ -8,6 +9,38 @@ class KidsController < ApplicationController
     end
 
     def show
+    end
+    
+    def create
+        @kid = Kid.create(kid_params)
+        if @kid.save
+            redirect_to kids_path
+        else 
+            render :new
+        end
+    end
+
+    def edit
+    end
+
+    def update
+        if @kid.update(kid_params)
+            redirect_to kid_path(@kid)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @kid.destroy
+    end
+
+    private
+    def set_kid
         @kid = Kid.find_by_id(params[:id])
+    end
+
+    def kid_params
+        params.require(:kid).permit(:f_name, :l_name, :birth, :gender, :age)
     end
 end
