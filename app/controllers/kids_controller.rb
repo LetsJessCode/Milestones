@@ -1,5 +1,6 @@
 class KidsController < ApplicationController
     before_action :set_kid, only: [:show, :edit, :update, :destroy]
+
     def index
         @kids = Kid.all
     end
@@ -14,7 +15,7 @@ class KidsController < ApplicationController
     def create
         @kid = Kid.create(kid_params)
         if @kid.save
-            redirect_to kids_path
+            redirect_to kid_path(@kid)
         else 
             render :new
         end
@@ -41,6 +42,6 @@ class KidsController < ApplicationController
     end
 
     def kid_params
-        params.require(:kid).permit(:f_name, :l_name, :birth, :gender, :age)
+        params.require(:kid).permit(:f_name, :l_name, :birth, :gender, :age, milestone_attributes: [:title, :date, :age, :location, :content])
     end
 end

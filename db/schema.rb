@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_021002) do
+ActiveRecord::Schema.define(version: 2020_08_18_040623) do
 
   create_table "kids", force: :cascade do |t|
     t.string "f_name"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 2020_08_18_021002) do
     t.string "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "milestone_id", null: false
+    t.index ["milestone_id"], name: "index_kids_on_milestone_id"
   end
 
+  create_table "milestones", force: :cascade do |t|
+    t.string "title"
+    t.date "date"
+    t.string "age"
+    t.string "location"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "kids", "milestones"
 end
