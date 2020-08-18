@@ -1,0 +1,16 @@
+<h1><%=@kid.f_name %> <%= @kid.l_name %>'s Profile</h1>
+    <p><%= @kid.birth %> | <%= @kid.age %> | <%= @kid.gender %></p>
+    <hr><hr>
+
+    <% @milestones.each do |milestone| %>
+    <div><h3><%= milestone.title %></h3>Milestone Date: <%= milestone.date %></div> 
+    <%= link_to 'View Milestone Story', kid_milestone_path(@kid, milestone) %></h3> 
+    <hr><hr>  
+    <% end %>
+
+
+    <p><%= link_to 'Edit Profile', edit_kid_path(@kid) %> |
+    <%= link_to "Delete", kid_path(@kid), method: "delete" %> |
+    <%= link_to "Create Milestone", new_kid_milestone_path(@kid) %></p>
+
+    

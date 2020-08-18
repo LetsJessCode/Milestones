@@ -1,6 +1,6 @@
 class KidsController < ApplicationController
     before_action :set_kid, only: [:show, :edit, :update, :destroy]
-
+    before_action :set_milestone, only: [:show]
     def index
         @kids = Kid.all
     end
@@ -10,7 +10,9 @@ class KidsController < ApplicationController
     end
 
     def show
-    end
+        
+    end 
+
     
     def create
         @kid = Kid.create(kid_params)
@@ -44,5 +46,9 @@ class KidsController < ApplicationController
 
     def kid_params
         params.require(:kid).permit(:f_name, :l_name, :birth, :gender, :age, milestone_attributes: [:title, :date, :age, :location, :content])
+    end
+
+    def set_milestone
+        @milestone = Milestone.find_by_id(params[:milestone_id])
     end
 end

@@ -1,25 +1,29 @@
 class MilestonesController < ApplicationController
-    before_action :current_kid, only: [:new] 
+    before_action :current_kid
 
     def index
-        if params[:kid_id] && @kid = current_kid
-            @milestones = current_kid.milestones
-            
-         end
+        @milestones = Milestone.all
     end
     
     def new
-        # binding.pry
-        current_kid
         @milestone = Milestone.new 
     end
 
     def create
-
+        @milestone = Milestone.new(milestone_params)
+        if @milestone.save
+            redirect_to kid_milestones_path(@kid, @milestone)
+        else
+            render :new
+        end  
     end
 
     private
     def current_kid
         @kid = Kid.find_by_id(params[:kid_id])
+    end
+
+    def milestone_params
+        params.require(:milestone).permit(:title, :date, :age, :location, :content)
     end
 end
