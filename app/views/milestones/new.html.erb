@@ -1,1 +1,26 @@
-<h1>new page</h1>
+<h1> Create Milestone </h1>
+
+    <%= form_for([@kid, @milestone]) do |f| %>
+
+<div>
+    <ol>
+        <li><%= f.label :title, 'Name of Milestone:' %></li>
+        <%= f.text_field :title %><br>
+
+        <li><%= f.label :date, 'When Did Milestone Happen?' %></li>
+        <%= f.date_field :date %><br>
+
+        <h3> How old was <%= @kid.f_name %>?</h3>
+        <%= f.text_field :age %><br>
+        
+        <li><%= f.label :location, 'Where did the Milestone Happen?' %></li>
+        <%= f.text_field :location %><br>
+
+         <li><%= f.label :content, "Milestone Story" %></li>
+        <%= f.text_area :content %><br>
+     </ol>
+     <hr>
+        <%= f.submit 'Create Milestone' %>
+ <% end %>
+   
+ </div>

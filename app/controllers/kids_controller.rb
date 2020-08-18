@@ -34,6 +34,7 @@ class KidsController < ApplicationController
 
     def destroy
         @kid.destroy
+        redirect_to kids_path
     end
 
     private
