@@ -1,12 +1,11 @@
 <h1>Home Page</h1>
-<% @kids.each do |kid| %>
-<div> 
-    <h2>Full Name: <%= link_to kid.f_name, kid_milestones_path(kid) %> <%= link_to kid.l_name, kid_path(kid) %></h2>
-</div>
-<div> 
-    <h4>Birthday: <%= kid.birth.strftime("%m/%d/%Y") %> | Current Age: <%= ((Time.zone.now - kid.birth.to_time) / 1.year.seconds).floor %></h4>
-    <br>
-</div>  <hr>
-    <% end %>
+
+
+            <% @kids.each do |kid| %>
+    <div> 
+        <h2>Full Name: <%= link_to kid.f_name, kid_milestones_path(kid) %><%= link_to kid.l_name, kid_path(kid) %></h2>
+        <hr>
+    </div> 
+<% end %>
 
     <%= link_to 'Add New Child', new_kid_path %>

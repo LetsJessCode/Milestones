@@ -1,9 +1,12 @@
 <h1><%=@kid.f_name %> <%= @kid.l_name %>'s Profile</h1>
-    <p>| Current Age: <%= ((Time.zone.now - @kid.birth.to_time) / 1.year.seconds).floor%> |  </p>
+
+
+   <p>Birthday: <%= @kid.birth.strftime("%m/%d/%Y") %></p><p>| Current Age: <%= ((Time.zone.now - @kid.birth.to_time) / 1.year.seconds).floor%> |  </p>
     <hr><hr>
 
     <% @milestones.each do |milestone| %>
     <div><h3><%= milestone.title %></h3>Milestone Date: <%= milestone.date.strftime("%m/%d/%Y") %></div> 
+    <p> Published Date: <%= milestone.created_at.strftime("%m/%d/%Y") %></p>
     <%= link_to 'View Milestone Story', kid_milestone_path(@kid, milestone) %></h3> 
     <hr><hr>  
     <% end %>

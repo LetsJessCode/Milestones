@@ -11,8 +11,25 @@
         <li><%= f.label :birth, 'Date of Birth:' %></li>
         <%= f.date_field :birth %><br> 
      </ol>
-     <hr>
-        <%= f.submit button_name %>
+        <h3>Let's Create Your First Milestone! </h3>
+        <hr>
+        <%= f.fields_for :milestone, kid.build_milestone do |milestone_obj| %> <br>
+        <%= milestone_obj.label :title, 'First Milestone:' %>
+        <%= milestone_obj.text_field :title %>
+
+        <%= milestone_obj.label :age %>
+        <%= milestone_obj.text_field :title %> <br><br>
+
+        <%= milestone_obj.label :date, 'Date of First Milestone:' %>
+        <%= milestone_obj.date_field :date %> <br><br>
+
+        <%= milestone_obj.label :location, 'Where Did the Milestone take place? :' %>
+        <%= milestone_obj.text_field :location %> <br><br>
+
+        <%= milestone_obj.label :content, 'First Milestone Story :' %>
+        <%= milestone_obj.text_area :content %> <br> 
+        <% end %>
+   </div>    
+     <%= f.submit button_name %>
  <% end %>
    
- </div>
