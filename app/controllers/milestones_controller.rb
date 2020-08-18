@@ -1,6 +1,6 @@
 class MilestonesController < ApplicationController
     before_action :current_kid
-
+    before_action :set_milestones, only: [:show]
     def index
         @milestones = Milestone.all
     end
@@ -18,6 +18,10 @@ class MilestonesController < ApplicationController
         end  
     end
 
+    def show
+       
+    end
+
     private
     def current_kid
         @kid = Kid.find_by_id(params[:kid_id])
@@ -25,5 +29,9 @@ class MilestonesController < ApplicationController
 
     def milestone_params
         params.require(:milestone).permit(:title, :date, :age, :location, :content)
+    end
+
+    def set_milestones
+        @milestone = Milestone.find_by_id(params[:milestone_id])
     end
 end

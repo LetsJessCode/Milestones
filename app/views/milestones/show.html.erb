@@ -1,0 +1,15 @@
+<h1>About <%= @kid.f_name %>'s <%= @kid.milestone.title %></h1>
+<p>When? : <%= @kid.milestone.date %>
+| Age?  : <%= @kid.milestone.age %> |
+Where? : <%= @kid.milestone.location %></p>
+<hr><hr>
+
+<h1>✒️ </h1>
+<%= @kid.milestone.content %>
+
+
+<!--t.string :title
+      t.date :date
+      t.string :age
+      t.string :location
+      t.text :content ->

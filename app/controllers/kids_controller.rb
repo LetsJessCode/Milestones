@@ -9,8 +9,7 @@ class KidsController < ApplicationController
         @kid = Kid.new
     end
 
-    def show
-        
+    def show 
     end 
 
     
@@ -45,7 +44,7 @@ class KidsController < ApplicationController
     end
 
     def kid_params
-        params.require(:kid).permit(:f_name, :l_name, :birth, :gender, :age, milestone_attributes: [:title, :date, :age, :location, :content])
+        params.require(:kid).permit(:f_name, :l_name, :birth, milestone_attributes: [:title, :date, :age, :location, :content])
     end
 
     def set_milestone

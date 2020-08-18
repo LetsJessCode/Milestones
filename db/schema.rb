@@ -10,14 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_040623) do
+ActiveRecord::Schema.define(version: 2020_08_18_212910) do
 
   create_table "kids", force: :cascade do |t|
     t.string "f_name"
     t.string "l_name"
-    t.string "age"
     t.date "birth"
-    t.string "gender"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "milestone_id", null: false
@@ -27,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_040623) do
   create_table "milestones", force: :cascade do |t|
     t.string "title"
     t.date "date"
-    t.string "age"
+    t.integer "age"
     t.string "location"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
