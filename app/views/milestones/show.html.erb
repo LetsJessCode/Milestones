@@ -8,7 +8,7 @@ Where? : <%= @kid.milestone.location %></p>
 <%= @kid.milestone.content %>
 <hr><hr>
 
-<%= link_to 'Edit Milestone', edit_kid_milestone_path(@kid) %>
+<%= link_to 'Edit Milestone', edit_kid_milestone_path(@kid) %> | <%= link_to 'Delete Milestone', kid_milestone_path(@kid), method: 'delete' %> | <%= link_to 'View Milestones', kid_milestones_path(@kid) %>
 
 <!--t.string :title
       t.date :date

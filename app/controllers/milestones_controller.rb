@@ -20,11 +20,24 @@ class MilestonesController < ApplicationController
         end  
     end
 
+    def update
+        if @kid.milestone.update(milestone_params)
+            redirect_to kid_milestone_path(@kid)
+        else
+            render :edit
+        end
+    end
+
     def show
     end
 
     def edit
     end
+
+    def destroy 
+        @milestone.destroy
+          redirect_to kid_milestones_path(@kid)
+      end
 
     private
     def current_kid
