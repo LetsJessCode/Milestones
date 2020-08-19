@@ -1,7 +1,7 @@
-require 'date'
 class KidsController < ApplicationController
     before_action :set_kid, only: [:show, :edit, :update, :destroy, :index]
     before_action :set_milestone, only: [:show, :index]
+   
     def index
         @kids = Kid.all
     end
@@ -10,12 +10,11 @@ class KidsController < ApplicationController
         @kid = Kid.new
     end
 
-    def show 
+    def show #do i need this model?
     end 
 
     
     def create
-        binding.pry
         @kid = Kid.create(kid_params)
         if @kid.save
             redirect_to kids_path
@@ -29,7 +28,7 @@ class KidsController < ApplicationController
 
     def update
         if @kid.update(kid_params)
-            redirect_to kid_path(@kid)
+            redirect_to kid_milestones_path(@kid)
         else
             render :edit
         end

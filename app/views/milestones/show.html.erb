@@ -1,12 +1,14 @@
 <h1>About <%= @kid.f_name %>'s <%= @kid.milestone.title %></h1>
-<p>When? : <%= @kid.milestone.date %>
+<p>When? :  <%= @kid.milestone.date.strftime("%m/%d/%Y") %>
 | Age?  : <%= @kid.milestone.age %> |
 Where? : <%= @kid.milestone.location %></p>
 <hr><hr>
 
 <h1>✒️ </h1>
 <%= @kid.milestone.content %>
+<hr><hr>
 
+<%= link_to 'Edit Milestone', edit_kid_milestone_path(@kid) %>
 
 <!--t.string :title
       t.date :date

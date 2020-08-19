@@ -5,15 +5,16 @@
     <hr><hr>
 
     <% @milestones.each do |milestone| %>
-    <div><h3><%= milestone.title %></h3>Milestone Date: <%= milestone.date.strftime("%m/%d/%Y") %></div> 
-    <p> Published Date: <%= milestone.created_at.strftime("%m/%d/%Y") %></p>
-    <%= link_to 'View Milestone Story', kid_milestone_path(@kid, milestone) %></h3> 
-    <hr><hr>  
+         <div><h3>The <%= milestone.title %> Story...</div> 
+        <p> Published Date: <%= milestone.created_at.strftime("%m/%d/%Y") %></p>
+       <p><%= link_to 'View Milestone Story', kid_milestone_path(@kid, milestone) %></p> 
+    
+    <hr><hr>   </ol>
     <% end %>
 
 
-    <p><%= link_to 'Edit Profile', edit_kid_path(@kid) %> |
-    <%= link_to "Delete", kid_path(@kid), method: "delete" %> |
+    <p><%= link_to "Edit Child", edit_kid_path(@kid) %> |
+    <%= link_to "Delete Profile", kid_path(@kid), method: "delete" %> |
     <%= link_to "Create Milestone", new_kid_milestone_path(@kid) %></p>
 
     

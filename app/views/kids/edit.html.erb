@@ -1,3 +1,18 @@
-<h1>Update <%= @kid.f_name %>'s Profile</h1>
+<h1>Update <%= @kid.f_name %>'s Personal Information</h1>
 
-<%= render partial: "kids/form", locals: {kid: @kid, button_name: "Update Profile"} %>
+<%= form_for @kid do |f| %>
+
+<div>
+    <ol>
+        <li><%= f.label :f_name, 'First Name:' %></li>
+        <%= f.text_field :f_name %><br>
+
+        <li><%= f.label :l_name, 'Last Name:' %></li>
+       <%= f.text_field :l_name %><br>
+
+        <li><%= f.label :birth, 'Date of Birth:' %></li>
+        <%= f.date_field :birth %><br> 
+
+     <%= f.submit 'Update Information' %>
+ <% end %>
+   

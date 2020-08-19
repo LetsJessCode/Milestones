@@ -1,24 +1,2 @@
-<h1> Create Milestone </h1>
 
-    <%= form_for([@kid, @milestone]) do |f| %>
-
-<div>
-    <ol>
-        <li><%= f.label :title, 'Name of Milestone:' %> <%= f.text_field :title %></li>
-       <br>
-        <li><%= f.label :date, 'When Did Milestone Happen?:' %> <%= f.date_field :date %></li>
-        <br>
-        <p><li> How old was <%= @kid.f_name %>? <%= f.text_field :age %></li></p>
-        <br>
-        <li><%= f.label :location, 'Where did the Milestone Happen?' %> <%= f.text_field :location %></li>
-        <br>
-
-         <li><%= f.label :content, "Milestone Story" %>    <%= f.text_area :content %></li>
-        <br>
-        <%= f.submit 'Create Milestone' %>
-     </ol>
-        
- <% end %>
-   
- </div>
-<hr>
+    <%= render partial: "milestones/form", locals: {milestone: @milestone, button_name: "Post Milestone"} %>

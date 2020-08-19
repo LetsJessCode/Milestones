@@ -1,6 +1,8 @@
 class MilestonesController < ApplicationController
     before_action :current_kid
-    before_action :set_milestones, only: [:show]
+    before_action :set_milestones, except: [:index, :new, :create]
+
+    
     def index
         @milestones = Milestone.all
     end
@@ -19,7 +21,9 @@ class MilestonesController < ApplicationController
     end
 
     def show
-       
+    end
+
+    def edit
     end
 
     private
@@ -32,6 +36,6 @@ class MilestonesController < ApplicationController
     end
 
     def set_milestones
-        @milestone = Milestone.find_by_id(params[:milestone_id])
+        @milestone = Milestone.find_by_id(params[:id])
     end
 end
