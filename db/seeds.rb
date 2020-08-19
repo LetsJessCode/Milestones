@@ -5,4 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-kid = Kid.create([{ f_name: 'Linda', l_name: 'Hand', age: '7', birth: '07-09-2013', gender: 'Girl'}])
+
+
+ 
+(1..(1..25).to_a.sample).to_a.each do |num|
+
+    Milestone.create(title: "Milestone Story #{num}", content: "A wonderful story ##{num}", age:"#{num}", location: "a magical place")   
+end
+
+
+puts "Finished Seeding Milestones"
